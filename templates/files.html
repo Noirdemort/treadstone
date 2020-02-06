@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Files List</title>
+    <link rel="stylesheet" href="/static/css/custom.css">
+    <link rel="stylesheet" href="/static/css/dracula.css" />
+    <link rel="stylesheet" href="/static/css/katex.min.css" />
+    <link rel="stylesheet" href="/static/css/codemirror.css" />
+    <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body>
+
+    <h1>Notes</h1>
+    <br />
+    <a href="/create" style="text-decoration: underline;">Create New note</a>
+    <a href="/logout" style="margin-left: 50px; text-decoration: underline;">Log out</a>
+    <br><br>
+    <ol>
+        {% for link in links %}
+        <li> <a href="/static/core/{{ link[0] }}">{{ link[1] }}</a> ----- <a href="/edit/{{ link[0] }}">Edit</a> ----- <a href="/download/{{ link[2] }}">Download Markdown</a></li>
+        {% endfor %}
+    </ol>
+</body>
+
+</html>

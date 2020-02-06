@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Code Edit</title>
+    <link rel="stylesheet" href="/static/css/custom.css">
+    <link rel="stylesheet" href="/static/css/dracula.css" />
+    <link rel="stylesheet" href="/static/css/katex.min.css" />
+    <link rel="stylesheet" href="/static/css/codemirror.css" />
+    <link rel="stylesheet" href="/static/css/main.min.css" />
+    <style>
+        .submit {
+            cursor: pointer;
+            border-radius: 5em;
+            color: #fff;
+            background: linear-gradient(to right, #0EAD2F, #007300);
+            border: 0;
+            padding-left: 40px;
+            padding-right: 40px;
+            padding-bottom: 10px;
+            padding-top: 10px;
+            font-family: 'Ubuntu', sans-serif;
+            margin-left: 35%;
+            margin-top: 20px;
+            font-size: 13px;
+            box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+        }
+
+        .forgot {
+            text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
+            color: #E1BEE7;
+            padding-top: 15px;
+        }
+
+        button {
+            text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
+            color: #E1BEE7;
+            text-decoration: none
+        }
+
+        textarea {
+            width: 100%;
+            height: 400px;
+            padding: 12px 20px;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            background-color: #f8f8f8;
+            resize: none;
+            font-size: 20px;
+            background: rgba(136, 126, 126, 0.04);
+            letter-spacing: 1px;
+            color: rgb(38, 50, 56);
+        }
+
+        textarea:focus {
+            border: 2px solid rgba(0, 0, 0, 0.18) !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1> {{ title }}</h1>
+    <br />
+    <form action="/edit/{{ filename }}" method="post">
+        <input name="title" value="{{ filename }}" hidden readonly required /><br />
+        <textarea cols="50" rows="150" name="code" placeholder="html text here..." required>{{ code }}</textarea><br />
+        <button class="submit" type="submit"> Update note </button>
+    </form>
+
+</body>
+
+</html>
